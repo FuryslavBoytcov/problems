@@ -14,10 +14,8 @@ public sealed class UniqueWordsTemplate
             - сигнатура метода `public static int CountUniqueWords(string source)`
             - метод должен корректно обрабатывать NullOrWhiteSpace строку
             - использовать static поля/свойства запрещено
-            - реализовать максимально производительный метод в отдельном классе. Класс наименовать `UniqueWordsTemplate`  например `UniqueWordsFuryslav`
+            - реализовать максимально производительный метод в отдельном классе. Класс наименовать `UniqueWordsYourName`  например `UniqueWordsFuryslav`
             - Нельзя использовать параллелизм
-            - Метод корректно работает
-            - Предоставить `UniqueWordsTemplate.cs`
     */
 
     public static int CountUniqueWords(string source)
