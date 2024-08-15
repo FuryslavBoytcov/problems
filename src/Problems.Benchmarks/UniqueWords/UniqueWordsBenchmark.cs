@@ -13,7 +13,7 @@ public class UniqueWordsBenchmark
     [Params(1024, 1024 * 1024, 1024 * 1024 * 5)]
     public int SourceLength { get; set; }
 
-    private string _source;
+    private string _source = default!;
 
     [GlobalSetup]
     public void Setup()
@@ -68,7 +68,7 @@ public class UniqueWordsBenchmark
     }
 
     [Benchmark]
-    public void Test_Template() => UniqueWordsTemplate.CountUniqueWords(_source);
+    public void Test_Template() => UniqueWordsDyatlovA.CountUniqueWords(_source);
 }
 
 // dotnet run --project src/Problems.Benchmarks/Problems.Benchmarks.csproj -c Release --filter '*UniqueWordsBenchmark*' 

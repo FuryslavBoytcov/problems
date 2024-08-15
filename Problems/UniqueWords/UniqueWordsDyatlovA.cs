@@ -2,7 +2,7 @@ using Xunit;
 
 namespace Problems.UniqueWords;
 
-public sealed class UniqueWordsTemplate
+public sealed class UniqueWordsDyatlovA
 {
     /* Реализовать метод который посчитает кол-во уникальных слов в передаваемой ему строке. 
         Определение что такое слово:  словом считается любое сочетание цифр и/или любых символов разделенных пробелом. 
@@ -20,7 +20,32 @@ public sealed class UniqueWordsTemplate
 
     public static int CountUniqueWords(string source)
     {
-        return 0;
+        if (String.IsNullOrWhiteSpace(source))
+            return 0;
+
+        const int startFlag = -1;
+        const char space = ' ';
+        
+        var set = new HashSet<int>();
+        var letters = source.AsSpan();
+        var start = startFlag;
+        
+        for (var index = 0; index < letters.Length; index++)
+        {
+            var letter = letters[index];
+            
+            if (letter != space && start == startFlag)
+            {
+                start = index;
+            }
+            else if (letter == space && start != startFlag)
+            {
+                set.Add(string.GetHashCode(letters.Slice(start, index - start)));
+                start = startFlag;
+            }
+        }
+
+        return set.Count;
     }
 
     [Theory]
