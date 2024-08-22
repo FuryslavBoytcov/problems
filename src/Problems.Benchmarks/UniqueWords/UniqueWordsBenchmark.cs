@@ -68,7 +68,7 @@ public class UniqueWordsBenchmark
     }
 
     [Benchmark]
-    public void Test_Template() => UniqueWordsTemplate.CountUniqueWords(_source);
+    public void Test_Template() => UniqueWordsBzhemba.CountUniqueWords(_source);
 }
 
 // dotnet run --project src/Problems.Benchmarks/Problems.Benchmarks.csproj -c Release --filter '*UniqueWordsBenchmark*' 
