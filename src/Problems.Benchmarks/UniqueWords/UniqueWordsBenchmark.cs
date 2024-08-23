@@ -50,8 +50,8 @@ public class UniqueWordsBenchmark
 
             for (var index = 0; index < wordLength; index++)
             {
-                var (minChar, maxChar) = index % 2 == 0 ? ('a', 'z') : ((int) 'A', (int) 'Z');
-                wordBuffer.Append((char) random.Next(minChar, maxChar));
+                var (minChar, maxChar) = index % 2 == 0 ? ('a', 'z') : ((int)'A', (int)'Z');
+                wordBuffer.Append((char)random.Next(minChar, maxChar));
             }
 
             bufffer.Append(wordBuffer);
@@ -69,6 +69,15 @@ public class UniqueWordsBenchmark
 
     [Benchmark]
     public void Test_Template() => UniqueWordsTemplate.CountUniqueWords(_source);
+
+    [Benchmark]
+    public void Test_Valeriy() => UniqueWordsValeriy.CountUniqueWords(_source);
+
+    [Benchmark]
+    public void Test_Valeriy_Alternative() => UniqueWordsValeriy.CountUniqueWordsAlternative(_source);
+
+    [Benchmark]
+    public void Test_Valeriy_Fun() => UniqueWordsValeriy.CountUniqueWordsFun(_source);
 }
 
 // dotnet run --project src/Problems.Benchmarks/Problems.Benchmarks.csproj -c Release --filter '*UniqueWordsBenchmark*' 
