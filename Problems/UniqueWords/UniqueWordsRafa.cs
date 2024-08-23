@@ -2,7 +2,7 @@ using Xunit;
 
 namespace Problems.UniqueWords;
 
-public sealed class UniqueWordsTemplate
+public sealed class UniqueWordsRafa
 {
     /* Реализовать метод который посчитает кол-во уникальных слов в передаваемой ему строке. 
         Определение что такое слово:  словом считается любое сочетание цифр и/или любых символов разделенных пробелом. 
@@ -20,7 +20,7 @@ public sealed class UniqueWordsTemplate
 
     public static int CountUniqueWords(string source)
     {
-        return 0;
+        return Solution.SolveProblem(source);
     }
 
     [Theory]
@@ -29,6 +29,11 @@ public sealed class UniqueWordsTemplate
     [InlineData(" ", 0)]
     [InlineData("   ", 0)]
     [InlineData("abc someww1 123 abc someww1", 3)]
+    [InlineData("abc someww1 123 abc hthfgh someww1", 4)]
+    [InlineData("abc Abc", 2)]
+    [InlineData("     abc               someww1      123 abc hthfgh      someww          ", 5)]
+    [InlineData("           abd               efg        hij   lmn       opq", 5)]
+    [InlineData("abd               efg        hij   lmn       opq", 5)]
     [InlineData("ggggggggggggggggggggggggg SSSSSSSSSSSSSSSSSSSSSSSSS ttttttttttttttttttttttttt ", 3)]
     public void TestCases(string source, int count)
     {
