@@ -68,7 +68,25 @@ public class UniqueWordsBenchmark
     }
 
     [Benchmark]
-    public void Test_Template() => UniqueWordsTemplate.CountUniqueWords(_source);
+    public void Bzhemba() => UniqueWordsBzhemba.CountUniqueWords(_source);
+    
+    [Benchmark]
+    public void DyatlovA() => UniqueWordsDyatlovA.CountUniqueWords(_source);
+    
+    [Benchmark]
+    public void Oxffaa() => UniqueWordsOxffaa.CountUniqueWords(_source);
+    
+    [Benchmark]
+    public void Rafa() => UniqueWordsRafa.CountUniqueWords(_source);
+    
+    [Benchmark]
+    public void Valeriy() => UniqueWordsValeriy.CountUniqueWords(_source);
+    
+    [Benchmark]
+    public void Pres_SimplestImprovedTimeAndSpace() => UniqueWordsPresSimplestImprovedTimeAndSpace.CountUniqueWords(_source);
+    
+    [Benchmark]
+    public void Pres_Advanced() => UniqueWordsPresAdvanced.CountUniqueWords(_source);
 }
 
 // dotnet run --project src/Problems.Benchmarks/Problems.Benchmarks.csproj -c Release --filter '*UniqueWordsBenchmark*' 
