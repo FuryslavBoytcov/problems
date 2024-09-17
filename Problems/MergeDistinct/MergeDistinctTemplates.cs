@@ -10,7 +10,7 @@ public sealed class MergeDistinctTemplates
     /// <typeparam name="TSource">The type of the elements of the input sequence.</typeparam>
     /// <typeparam name="TKey">The type of key to identify elements by.</typeparam>
     /// <param name="first">An <see cref="IEnumerable{TSource}" /> whose keys that are also in <paramref name="second"/> will be returned from <paramref name="second"/>, whose keys or <paramref name="uniqueFields"/> that are not unique to the sequence, will cause these elements to be removed from the returned sequence.</param>
-    /// <param name="second">An <see cref="IEnumerable{TKey}" /> whose keys or <paramref name="uniqueFields"/> that are not unique to the sequence, will cause these elements to be removed from the returned sequence.</param>
+    /// <param name="second">An <see cref="IEnumerable{TSource}" /> whose keys or <paramref name="uniqueFields"/> that are not unique to the sequence, will cause these elements to be removed from the returned sequence.</param>
     /// <param name="keySelector">A function to extract the key for each element.</param>
     /// <param name="uniqueFields">A function to extract the unique field for each element.</param>
     /// <returns>A sequence consisting of the result of the combination of two sequences. Duplicate elements will be removed from the result. Uniqueness is determined by combining sequences <paramref name="first"/> and <paramref name="second"/></returns>
