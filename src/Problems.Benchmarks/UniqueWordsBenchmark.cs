@@ -3,7 +3,7 @@ using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
 using Problems.UniqueWords;
 
-namespace Problems.Benchmarks.UniqueWords;
+namespace Problems.Benchmarks;
 
 [SimpleJob(RuntimeMoniker.Net70)]
 [JsonExporter]
@@ -69,22 +69,23 @@ public class UniqueWordsBenchmark
 
     [Benchmark]
     public void Bzhemba() => UniqueWordsBzhemba.CountUniqueWords(_source);
-    
+
     [Benchmark]
     public void DyatlovA() => UniqueWordsDyatlovA.CountUniqueWords(_source);
-    
+
     [Benchmark]
     public void Oxffaa() => UniqueWordsOxffaa.CountUniqueWords(_source);
-    
+
     [Benchmark]
     public void Rafa() => UniqueWordsRafa.CountUniqueWords(_source);
-    
+
     [Benchmark]
     public void Valeriy() => UniqueWordsValeriy.CountUniqueWords(_source);
-    
+
     [Benchmark]
-    public void Pres_SimplestImprovedTimeAndSpace() => UniqueWordsPresSimplestImprovedTimeAndSpace.CountUniqueWords(_source);
-    
+    public void Pres_SimplestImprovedTimeAndSpace()
+        => UniqueWordsPresSimplestImprovedTimeAndSpace.CountUniqueWords(_source);
+
     [Benchmark]
     public void Pres_Advanced() => UniqueWordsPresAdvanced.CountUniqueWords(_source);
 }

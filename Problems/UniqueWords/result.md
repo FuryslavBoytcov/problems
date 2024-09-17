@@ -11,14 +11,14 @@
     }
     .heatMap tr:nth-child(5) { background: gold; color: black;  }
     .heatMap tr:nth-child(2) { background: lightgreen; color: black;  }
-    .heatMap tr:nth-child(3) { background: lightgreen; color: black;  }
+    .heatMap tr:nth-child(3) { background: green; color: black;  }
 
     .heatMap tr:nth-child(9) { background: gold; color: black;  }
-    .heatMap tr:nth-child(10) { background: lightgreen; color: black;  }
+    .heatMap tr:nth-child(10) { background: green; color: black;  }
     .heatMap tr:nth-child(11) { background: lightgreen; color: black;  }
 
     .heatMap tr:nth-child(16) { background: gold; color: black;  }
-    .heatMap tr:nth-child(17) { background: lightgreen; color: black;  }
+    .heatMap tr:nth-child(17) { background: green; color: black;  }
     .heatMap tr:nth-child(19) { background: lightgreen; color: black;  }
 </style>
 
