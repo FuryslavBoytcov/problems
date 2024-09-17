@@ -189,8 +189,7 @@ public sealed class MergeDistinctDataGenerator
     public static ExcludedMergeDistinctDataModel CreateSelfCheckMergedResult(
         MergeDistinctDataModel[] first,
         MergeDistinctDataModel[] second,
-        Func<MergeDistinctDataModel, object>[] uniqueFields,
-        MergeDistinctDataModel[] expectedMerged)
+        Func<MergeDistinctDataModel, object>[] uniqueFields)
     {
         var testSelfAssertSource = first.Concat(second).GroupBy(t => t.Id).ToDictionary(t => t.Key);
         var excludes = new List<(MergeDistinctDataModel Model, string Reason)>();

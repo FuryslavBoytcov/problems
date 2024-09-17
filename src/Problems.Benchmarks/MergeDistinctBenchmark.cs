@@ -47,7 +47,7 @@ public class MergeDistinctBenchmark
     [Benchmark]
     public void Template_ToArray()
     {
-        var actual = MergeDistinctTemplates.MergeDistinctTemplate(_first, _second, f => f.Id, _uniqueFields).ToArray();
+        var actual = MergeDistinctTemplates.MergeDistinct(_first, _second, f => f.Id, _uniqueFields).ToArray();
         if (actual.Length != _expectedResultCount)
             Console.WriteLine(
                 $"Merge distinct failed: {nameof(Template_ToArray)}. Expected: {_expectedResultCount}, Actual: {
@@ -57,7 +57,7 @@ public class MergeDistinctBenchmark
     [Benchmark]
     public void Template_Yield()
     {
-        var actual = MergeDistinctTemplates.MergeDistinctTemplate(_first, _second, f => f.Id, _uniqueFields);
+        var actual = MergeDistinctTemplates.MergeDistinct(_first, _second, f => f.Id, _uniqueFields);
         var count = 0;
 
         foreach (var item in actual)

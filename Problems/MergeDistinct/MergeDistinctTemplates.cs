@@ -14,7 +14,7 @@ public sealed class MergeDistinctTemplates
     /// <param name="keySelector">A function to extract the key for each element.</param>
     /// <param name="uniqueFields">A function to extract the unique field for each element.</param>
     /// <returns>A sequence consisting of the result of the combination of two sequences. Duplicate elements will be removed from the result. Uniqueness is determined by combining sequences <paramref name="first"/> and <paramref name="second"/></returns>
-    public static IEnumerable<TSource> MergeDistinctTemplate<TSource, TKey>(
+    public static IEnumerable<TSource> MergeDistinct<TSource, TKey>(
         IEnumerable<TSource> first,
         IEnumerable<TSource> second,
         Func<TSource, TKey> keySelector,
@@ -49,7 +49,7 @@ public sealed class MergeDistinctTemplates
             var expectedMerged
                 = MergeDistinctDataGenerator.CreateExpectedMerged(first, second, f => f.Id, uniqueFields);
 
-            var actualMerged = MergeDistinctTemplate(
+            var actualMerged = MergeDistinct(
                     first: first,
                     second: second,
                     keySelector: f => f.Id,
@@ -71,7 +71,7 @@ public sealed class MergeDistinctTemplates
             MergeDistinctDataModel[] expectedMerged)
         {
             var testSelfAssertSource
-                = MergeDistinctDataGenerator.CreateSelfCheckMergedResult(first, second, uniqueFields, expectedMerged);
+                = MergeDistinctDataGenerator.CreateSelfCheckMergedResult(first, second, uniqueFields);
 
             Assert.DoesNotContain(testSelfAssertSource.Result.Values, t => t.Count() > 2);
             Assert.Equal(testSelfAssertSource.Result.Values.Count, expectedMerged.Length);
