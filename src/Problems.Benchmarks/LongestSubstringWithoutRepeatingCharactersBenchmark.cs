@@ -37,19 +37,6 @@ public class LongestSubstringWithoutRepeatingCharactersBenchmark
     }
 
     [Benchmark]
-    public void Bzhemba() => LongestSubstringWithoutRepeatingCharactersBzhemba.LengthOfLongestSubstring(_input);
-
-    [Benchmark]
-    public void Dm() => LongestSubstringWithoutRepeatingCharactersDm.LengthOfLongestSubstring(_input);
-
-    [Benchmark]
-    public void Oxffaa() => LongestSubstringWithoutRepeatingCharactersOxffaa.LengthOfLongestSubstring(_input);
-
-    [Benchmark]
-    public void VMakeeva() => LongestSubstringWithoutRepeatingCharactersVMakeeva.LengthOfLongestSubstring(_input);
-
-    [Benchmark]
-    public void Solution() => LongestSubstringWithoutRepeatingCharactersTemplate.LengthOfLongestSubstring(_input);
+    public void Pres_SimplestImprovedTimeAndSpace()
+        => LongestSubstringWithoutRepeatingCharactersBzhemba.LengthOfLongestSubstring(_input);
 }
-
-// dotnet run --project src/Problems.Benchmarks/Problems.Benchmarks.csproj -c Release --filter '*LongestSubstringWithoutRepeatingCharactersBenchmark*' 
