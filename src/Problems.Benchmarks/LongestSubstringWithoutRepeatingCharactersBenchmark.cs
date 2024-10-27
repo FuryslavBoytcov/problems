@@ -37,6 +37,10 @@ public class LongestSubstringWithoutRepeatingCharactersBenchmark
     }
 
     [Benchmark]
-    public void Pres_SimplestImprovedTimeAndSpace()
+    public void Example()
         => LongestSubstringWithoutRepeatingCharactersTemplate.LengthOfLongestSubstring(_input);
+    
+    [Benchmark]
+    public void Oxffaa()
+        => LongestSubstringWithoutRepeatingCharactersOxffaa.LengthOfLongestSubstring(_input);
 }
