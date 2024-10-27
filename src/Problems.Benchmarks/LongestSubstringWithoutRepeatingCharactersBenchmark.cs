@@ -38,5 +38,5 @@ public class LongestSubstringWithoutRepeatingCharactersBenchmark
 
     [Benchmark]
     public void Pres_SimplestImprovedTimeAndSpace()
-        => LongestSubstringWithoutRepeatingCharactersTemplate.LengthOfLongestSubstring(_input);
+        => LongestSubstringWithoutRepeatingCharactersVMakeeva.LengthOfLongestSubstring(_input);
 }

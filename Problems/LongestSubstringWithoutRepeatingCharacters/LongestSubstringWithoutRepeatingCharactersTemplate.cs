@@ -8,11 +8,30 @@ namespace Problems.LongestSubstringWithoutRepeatingCharacters;
  *      LongestSubstringWithoutRepeatingCharactersTemplate -> LongestSubstringWithoutRepeatingCharactersYourName
  * 3. Implement your awesome algorithm
  */
-public sealed class LongestSubstringWithoutRepeatingCharactersTemplate
+public sealed class LongestSubstringWithoutRepeatingCharactersVMakeeva
 {
     public static int LengthOfLongestSubstring(string s)
     {
-        return 0;
+        if (String.IsNullOrEmpty(s))
+            return 0;
+
+        var size = s.Length;
+        var rightPtr = 0;
+        var leftPtr = 0;
+        var maxLength = 0;
+        var sub = new List<char>(); 
+
+        while (rightPtr < size) {
+            if(!sub.Contains(s[rightPtr])) {
+                sub.Add(s[rightPtr]);                
+                rightPtr++;                
+                maxLength = Math.Max(maxLength, rightPtr-leftPtr);
+            } else {
+                sub.Remove(s[leftPtr]);
+                leftPtr++;
+            }           
+        }        
+        return maxLength;
     }
 
     [Theory]
