@@ -2,17 +2,29 @@ using Xunit;
 
 namespace Problems.LongestSubstringWithoutRepeatingCharacters;
 
-/*
- * 1. Copy this template
- * 2. Rename according to your name
- *      LongestSubstringWithoutRepeatingCharactersTemplate -> LongestSubstringWithoutRepeatingCharactersYourName
- * 3. Implement your awesome algorithm
- */
-public sealed class LongestSubstringWithoutRepeatingCharactersTemplate
+public sealed class LongestSubstringWithoutRepeatingCharactersBzhemba
 {
-    public static int LengthOfLongestSubstring(string source)
+    public static int LengthOfLongestSubstring(string s)
     {
-        return 0;
+        if (s is null)
+            return 0;
+
+        var window = new HashSet<char>();
+        var left = 0;
+        var maxLength = 0;
+
+        for (var right = 0; right < s.Length; right++)
+        {
+            while (window.Contains(s[right]))
+            {
+                window.Remove(s[left++]);
+            }
+
+            window.Add(s[right]);
+            maxLength = Math.Max(maxLength, right - left + 1);
+        }
+
+        return maxLength;
     }
 
     [Theory]
