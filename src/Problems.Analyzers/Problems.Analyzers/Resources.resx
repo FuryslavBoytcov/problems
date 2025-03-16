@@ -24,7 +24,7 @@
         </value>
     </resheader>
     <data name="AB0001Description" xml:space="preserve">
-        <value>Type names should  should contains folder paths.</value>
+        <value>Type names should contains folder paths.</value>
         <comment>An optional longer localizable description of the diagnostic.</comment>
     </data>
     <data name="AB0001MessageFormat" xml:space="preserve">
