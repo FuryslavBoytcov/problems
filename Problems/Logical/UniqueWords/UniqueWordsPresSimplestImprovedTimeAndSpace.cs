@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace Problems.UniqueWords;
+namespace Problems.Logical.UniqueWords;
 
 public sealed class UniqueWordsPresSimplestImprovedTimeAndSpace
 {
@@ -22,7 +22,7 @@ public sealed class UniqueWordsPresSimplestImprovedTimeAndSpace
             else
                 hashCode.Add(ch);
         }
-        
+
         return passed.Count;
     }
 

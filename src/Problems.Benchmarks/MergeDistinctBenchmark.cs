@@ -1,6 +1,6 @@
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
-using Problems.MergeDistinct;
+using Problems.Temp.MergeDistinct;
 
 namespace Problems.Benchmarks;
 

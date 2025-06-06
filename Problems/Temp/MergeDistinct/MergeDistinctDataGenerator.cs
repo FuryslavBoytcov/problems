@@ -1,4 +1,4 @@
-namespace Problems.MergeDistinct;
+namespace Problems.Temp.MergeDistinct;
 
 public sealed class MergeDistinctDataGenerator
 {
@@ -13,51 +13,50 @@ public sealed class MergeDistinctDataGenerator
     {
         var buffer = new Stack<MergeDistinctDataModel>();
         var result = Enumerable.Range(0, capacity)
-            .Select(
-                (t, i) =>
+            .Select((t, i) =>
+            {
+                if (i % 8 == 0)
                 {
-                    if (i % 8 == 0)
+                    while (buffer.Count > 0)
                     {
-                        while (buffer.Count > 0)
-                        {
-                            var previous = buffer.Pop();
-                            return new MergeDistinctDataModel(
-                                Id: _random.NextInt64(),
-                                Title: Guid.NewGuid().ToString(),
-                                Price: (decimal) _random.NextDouble(),
-                                UniqueExternalId1: previous.UniqueExternalId2.ToString(),
-                                UniqueExternalId2: previous.UniqueExternalId3,
-                                UniqueExternalId3: previous.UniqueExternalId4,
-                                UniqueExternalId4: _random.Next());
-                        }
-                    }
-                    else if (i % 7 == 0)
-                    {
-                        var id4 = _random.Next();
+                        var previous = buffer.Pop();
                         return new MergeDistinctDataModel(
                             Id: _random.NextInt64(),
                             Title: Guid.NewGuid().ToString(),
                             Price: (decimal) _random.NextDouble(),
-                            UniqueExternalId1: id4.ToString(),
-                            UniqueExternalId2: id4,
-                            UniqueExternalId3: id4,
-                            UniqueExternalId4: id4);
+                            UniqueExternalId1: previous.UniqueExternalId2.ToString(),
+                            UniqueExternalId2: previous.UniqueExternalId3,
+                            UniqueExternalId3: previous.UniqueExternalId4,
+                            UniqueExternalId4: _random.Next());
                     }
-
-                    var result = new MergeDistinctDataModel(
+                }
+                else if (i % 7 == 0)
+                {
+                    var id4 = _random.Next();
+                    return new MergeDistinctDataModel(
                         Id: _random.NextInt64(),
                         Title: Guid.NewGuid().ToString(),
                         Price: (decimal) _random.NextDouble(),
-                        UniqueExternalId1: Guid.NewGuid().ToString(),
-                        UniqueExternalId2: _random.NextInt64(),
-                        UniqueExternalId3: _random.Next(),
-                        UniqueExternalId4: _random.Next());
+                        UniqueExternalId1: id4.ToString(),
+                        UniqueExternalId2: id4,
+                        UniqueExternalId3: id4,
+                        UniqueExternalId4: id4);
+                }
 
-                    if (i % 9 == 0)
-                        buffer.Push(result);
+                var result = new MergeDistinctDataModel(
+                    Id: _random.NextInt64(),
+                    Title: Guid.NewGuid().ToString(),
+                    Price: (decimal) _random.NextDouble(),
+                    UniqueExternalId1: Guid.NewGuid().ToString(),
+                    UniqueExternalId2: _random.NextInt64(),
+                    UniqueExternalId3: _random.Next(),
+                    UniqueExternalId4: _random.Next());
 
-                    return result;
-                })
+                if (i % 9 == 0)
+                    buffer.Push(result);
+
+                return result;
+            })
             .ToArray();
 
         buffer.Clear();

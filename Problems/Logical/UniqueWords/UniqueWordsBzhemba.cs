@@ -1,15 +1,15 @@
 using Xunit;
 
-namespace Problems.UniqueWords;
+namespace Problems.Logical.UniqueWords;
 
-public sealed class UniqueWordsDyatlovA
+public sealed class UniqueWordsBzhemba
 {
-    /* Реализовать метод который посчитает кол-во уникальных слов в передаваемой ему строке. 
-        Определение что такое слово:  словом считается любое сочетание цифр и/или любых символов разделенных пробелом. 
+    /* Реализовать метод который посчитает кол-во уникальных слов в передаваемой ему строке.
+        Определение что такое слово:  словом считается любое сочетание цифр и/или любых символов разделенных пробелом.
         Например: “abc someww1 123 abc someww1” => [abc, someww1, 123] - ответ 3
-       
+
         Объем данных: Длина строки может быть [0; 500MB]
-       
+
         Требования:
             - сигнатура метода `public static int CountUniqueWords(string source)`
             - метод должен корректно обрабатывать NullOrWhiteSpace строку
@@ -18,34 +18,29 @@ public sealed class UniqueWordsDyatlovA
             - Нельзя использовать параллелизм
     */
 
-    public static int CountUniqueWords(string source)
+    public static int CountUniqueWords(string input)
     {
-        if (String.IsNullOrWhiteSpace(source))
+        if (String.IsNullOrWhiteSpace(input))
             return 0;
 
-        const int startFlag = -1;
-        const char space = ' ';
-        
-        var set = new HashSet<int>();
-        var letters = source.AsSpan();
-        var start = startFlag;
-        
-        for (var index = 0; index < letters.Length; index++)
+        var uniqueWords = new HashSet<string>();
+        var span = input.AsSpan();
+        var start = 0;
+
+        for (var i = 0; i < span.Length; i++)
         {
-            var letter = letters[index];
-            
-            if (letter != space && start == startFlag)
-            {
-                start = index;
-            }
-            else if (letter == space && start != startFlag)
-            {
-                set.Add(string.GetHashCode(letters.Slice(start, index - start)));
-                start = startFlag;
-            }
+            if (span[i] != ' ')
+                continue;
+
+            if (i > start)
+                uniqueWords.Add(span.Slice(start, i - start).ToString());
+            start = i + 1;
         }
 
-        return set.Count;
+        if (start < span.Length)
+            uniqueWords.Add(span.Slice(start).ToString());
+
+        return uniqueWords.Count;
     }
 
     [Theory]
@@ -55,6 +50,7 @@ public sealed class UniqueWordsDyatlovA
     [InlineData("   ", 0)]
     [InlineData("abc someww1 123 abc someww1", 3)]
     [InlineData("ggggggggggggggggggggggggg SSSSSSSSSSSSSSSSSSSSSSSSS ttttttttttttttttttttttttt ", 3)]
+    [InlineData("abc somEww1 123 abc someww1", 4)]
     public void TestCases(string source, int count)
     {
         Assert.Equal(count, CountUniqueWords(source));

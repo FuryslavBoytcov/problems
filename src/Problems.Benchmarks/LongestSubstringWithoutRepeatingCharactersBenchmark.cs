@@ -1,7 +1,7 @@
 using System.Text;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
-using Problems.LongestSubstringWithoutRepeatingCharacters;
+using Problems.Logical.LongestSubstringWithoutRepeatingCharacters;
 
 namespace Problems.Benchmarks;
 

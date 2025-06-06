@@ -1,33 +1,29 @@
 using Xunit;
 
-namespace Problems.LongestSubstringWithoutRepeatingCharacters;
+namespace Problems.Logical.LongestSubstringWithoutRepeatingCharacters;
 
-public sealed class LongestSubstringWithoutRepeatingCharactersVMakeeva
+public sealed class LongestSubstringWithoutRepeatingCharactersDm
 {
     public static int LengthOfLongestSubstring(string s)
     {
-        if (String.IsNullOrEmpty(s))
+        if (string.IsNullOrEmpty(s))
             return 0;
 
-        var size = s.Length;
-        var rightPtr = 0;
-        var leftPtr = 0;
         var maxLength = 0;
-        var sub = new List<char>();
+        var symbolIndexes = new int[128];
+        Array.Fill(symbolIndexes, -1);
 
-        while (rightPtr < size)
+        var start = 0;
+        for (var end = 0; end < s.Length; end++)
         {
-            if (!sub.Contains(s[rightPtr]))
-            {
-                sub.Add(s[rightPtr]);
-                rightPtr++;
-                maxLength = Math.Max(maxLength, rightPtr - leftPtr);
-            }
-            else
-            {
-                sub.Remove(s[leftPtr]);
-                leftPtr++;
-            }
+            var symbol = s[end];
+            start = Math.Max(start, symbolIndexes[symbol] + 1);
+
+            var length = end - start + 1;
+            if (length > maxLength)
+                maxLength = length;
+
+            symbolIndexes[symbol] = end;
         }
 
         return maxLength;

@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace Problems.LongestSubstringWithoutRepeatingCharacters;
+namespace Problems.Logical.LongestSubstringWithoutRepeatingCharacters;
 
 /*
  * 1. Copy this template

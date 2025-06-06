@@ -1,4 +1,4 @@
-namespace Problems.MergeDistinct;
+namespace Problems.Temp.MergeDistinct;
 
 public sealed record MergeDistinctDataModel(
     long Id,

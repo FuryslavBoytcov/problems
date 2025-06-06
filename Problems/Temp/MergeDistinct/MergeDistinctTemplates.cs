@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace Problems.MergeDistinct;
+namespace Problems.Temp.MergeDistinct;
 
 public sealed class MergeDistinctTemplates
 {

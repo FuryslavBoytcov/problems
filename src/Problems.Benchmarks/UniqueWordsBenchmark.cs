@@ -1,7 +1,7 @@
 using System.Text;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
-using Problems.UniqueWords;
+using Problems.Logical.UniqueWords;
 
 namespace Problems.Benchmarks;
 

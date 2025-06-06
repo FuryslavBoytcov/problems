@@ -1,8 +1,6 @@
-using System.Diagnostics;
-using Microsoft.CodeAnalysis.FlowAnalysis;
 using Xunit;
 
-namespace Problems.UniqueWords;
+namespace Problems.Logical.UniqueWords;
 
 public sealed class UniqueWordsOxffaa
 {
@@ -22,14 +20,16 @@ public sealed class UniqueWordsOxffaa
 
     public static int CountUniqueWords(string source)
     {
-        if (String.IsNullOrWhiteSpace(source)) return 0;
+        if (String.IsNullOrWhiteSpace(source))
+            return 0;
 
         var words = source.Split(' ');
         var set = new HashSet<string>(words.Length);
-        
+
         foreach (var word in words)
         {
-            if (String.IsNullOrWhiteSpace(word)) continue;
+            if (String.IsNullOrWhiteSpace(word))
+                continue;
 
             set.Add(word);
         }

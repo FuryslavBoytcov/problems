@@ -1,12 +1,13 @@
 using Xunit;
 
-namespace Problems.UniqueWords;
+namespace Problems.Logical.UniqueWords;
 
 public sealed class UniqueWordsValeriy
 {
     public static int CountUniqueWords(string? source)
     {
-        if (source is null) return 0;
+        if (source is null)
+            return 0;
 
         const char space = ' ';
         const int notSetIndex = -1;
@@ -36,7 +37,7 @@ public sealed class UniqueWordsValeriy
 
         return words.Count;
     }
-    
+
     [Theory]
     [InlineData(null, 0)]
     [InlineData("", 0)]
